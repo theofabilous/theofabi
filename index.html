@@ -1,135 +1,92 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <title>Next Parched Capybara</title>
-    <meta property="og:title" content="Next Parched Capybara" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+	<title>Next Parched Capybara</title>
+	<meta property="og:title" content="Next Parched Capybara" />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta property="twitter:card" content="summary_large_image" />
+	<style data-tag="reset-style-sheet">
+		html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+	</style>
+	<style data-tag="default-style-sheet">
+		html {
+		font-family: Inter;
+		font-size: 16px;
+		}
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+		body {
+		font-weight: 400;
+		font-style:normal;
+		text-decoration: none;
+		text-transform: none;
+		letter-spacing: normal;
+		line-height: 1.15;
+		color: var(--dl-color-gray-black);
+		background-color: var(--dl-color-gray-white);
 
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-      data-tag="font"
-    />
+		}
+	</style>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+		data-tag="font"
+	/>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+		data-tag="font"
+	/>
 
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div>
-      <link href="./home.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<canvas id="bg"></canvas>
+		<div>
+			<link href="./home.css" rel="stylesheet" />
 
-      <div class="home-container">
-        <header data-role="Header" class="home-header">
-          <h1 class="home-text">theo fabi</h1>
-          <h1 class="home-text1 hotbar-opt">file</h1>
-          <h1 class="home-text2 hotbar-opt">edit</h1>
-          <h1 class="home-text3 hotbar-opt">view</h1>
-          <div data-type="MobileMenu" class="home-mobile-menu">
-            <nav class="home-nav">
-              <div class="home-container1">
-                <img
-                  alt="image"
-                  src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-                  class="home-image"
-                />
-                <div data-type="CloseMobileMenu" class="home-close-mobile-menu">
-                  <svg viewBox="0 0 1024 1024" class="home-icon">
-                    <path
-                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-              <nav
-                class="navigation-links2-nav navigation-links2-root-class-name13"
-              >
-                <span class="navigation-links2-text"><span>About</span></span>
-                <span class="navigation-links2-text1">
-                  <span>Features</span>
-                </span>
-                <span class="navigation-links2-text2">
-                  <span>Pricing</span>
-                </span>
-                <span class="navigation-links2-text3"><span>Team</span></span>
-                <span class="navigation-links2-text4"><span>Blog</span></span>
-              </nav>
-            </nav>
-            <div>
-              <svg viewBox="0 0 950.8571428571428 1024" class="home-icon2">
-                <path
-                  d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
-                ></path></svg
-              ><svg viewBox="0 0 877.7142857142857 1024" class="home-icon4">
-                <path
-                  d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
-                ></path></svg
-              ><svg viewBox="0 0 602.2582857142856 1024" class="home-icon6">
-                <path
-                  d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
-                ></path>
-              </svg>
-            </div>
-          </div>
-        </header>
-        <div class="app-component-container app-component-root-class-name1">
-          <img
-            alt="image"
-            src="public/playground_assets/icons8-folder.svg"
-            class="app-component-image"
-          />
-          <span class="app-component-text"><span>test</span></span>
-        </div>
-        <div class="app-component-container app-component-root-class-name">
-          <img
-            alt="image"
-            src="public/playground_assets/icons8-folder.svg"
-            class="app-component-image"
-          />
-          <span class="app-component-text"><span>test</span></span>
-        </div>
-        <div id="__temporary__"></div>
-        <div class="app-component-container app-component-root-class-name2">
-          <img
-            alt="image"
-            src="public/playground_assets/icons8-folder.svg"
-            class="app-component-image"
-          />
-          <span class="app-component-text"><span>test</span></span>
-        </div>
-      </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@next"></script>
+			<div class="home-container">
+				<header data-role="Header" class="home-header">
+					<h1 class="home-text">theo fabi</h1>
+					<h1 class="home-text1 hotbar-opt">file</h1>
+					<h1 class="home-text2 hotbar-opt">edit</h1>
+					<h1 class="home-text3 hotbar-opt">view</h1>
+				</header>
+				<div class="app-component-container app-component-root-class-name1">
+					<img
+					alt="image"
+					src="public/playground_assets/icons8-folder.svg"
+					class="app-component-image"
+					/>
+					<span class="app-component-text"><span>test</span></span>
+				</div>
+				<div class="app-component-container app-component-root-class-name">
+					<img
+					alt="image"
+					src="public/playground_assets/icons8-folder.svg"
+					class="app-component-image"
+					/>
+					<span class="app-component-text"><span>test</span></span>
+				</div>
+				<div id="__temporary__">
+				</div>
+				<div class="app-component-container app-component-root-class-name2">
+					<img
+					alt="image"
+					src="public/playground_assets/icons8-folder.svg"
+					class="app-component-image"
+					/>
+					<span class="app-component-text"><span>test</span></span>
+				</div>
+			</div>
+		</div>
+		
+	<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@next"></script>
 
 	<!--<script src="shine.js/dist/shine.min.js"></script>-->
 	<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js">
@@ -143,156 +100,122 @@
 		}
 	</script>
 
-    <script
-    data-section-id="header"
-    >
-      const draggable = new Draggable.Draggable(
-        document.querySelectorAll('div'), 
-        {
-          draggable: '.app-component-container',
-          distance: 7
-        }
-      );
+	<script
+	type="module"
+	data-section-id="header"
+	>
+		import * as THREE from "three";
+		const scene = new THREE.Scene();
 
-      let files = document.querySelectorAll('.app-component-container');
-      for(const file of files)
-      {
-        file.style['--effect'] = "0";
-        file.addEventListener('dblclick', () => {
-          if(file.style['--effect'] === "0")
-          {
-            file.style['--effect'] = "1";
-            file.classList.add("rainbow_class");
-          }
-          else
-          {
-            file.style['--effect'] = "0";
-            file.classList.remove("rainbow_class");
-          }
-        });
+		const draggable = new Draggable.Draggable(
+			document.querySelectorAll('div'), 
+			{
+					draggable: '.app-component-container',
+					distance: 7
+			}
+		);
+
+		for(const file of document.querySelectorAll('.app-component-container'))
+		{
+			file.style['--effect'] = "0";
+			file.addEventListener('dblclick', () => {
+				if(file.style['--effect'] === "0")
+				{
+					file.style['--effect'] = "1";
+					file.classList.add("rainbow_class");
+				}
+				else
+				{
+					file.style['--effect'] = "0";
+					file.classList.remove("rainbow_class");
+				}
+			});
+			/*
+			file.addEventListener('scroll', () => {
+				console.log('scrolling!'); 
+			});
+			
+			file.addEventListener('wheel', () => {
+				console.log('wheeling!'); 
+			});
+			*/
+		}
 		/*
-        file.addEventListener('scroll', () => {
-        	console.log('scrolling!'); 
-        });
-		
-        file.addEventListener('wheel', () => {
-        	console.log('wheeling!'); 
-        });
-		*/
-      }
-		/*
-	  document.addEventListener('wheel', (event) =>
+		document.addEventListener('wheel', (event) =>
 		{
 			console.log('wheeling!');
 			console.log('' + event.deltaX + ', ' + event.deltaY);
 		}
-	  );
+		);
 		*/
-      let opts = document.querySelectorAll('.hotbar-opt');
-      for(const opt of opts)
-      {
+		// let opts = document.querySelectorAll('.hotbar-opt');
+		// for(const opt of opts)
+		// {
 
-      }
+		// }
 
-      let temp = document.getElementById('__temporary__');
-
-
-      const eleminfo = (elem) => {
-        for(let i=0; i< elem.attributes.length; i++)
-          console.log(elem.attributes[i]);
-      }
-
-      const getrot = (m) => {
-        const scale = Math.sqrt(m.a*m.a, m.b*m.b);
-        const sin = m.b/scale;
-        return Math.round(Math.asin(sin) * (180/Math.PI));
-      }
-
-      var shine;
-      // var shinec = new shinejs.Config({
-
-      // });
-      var timer;
-      var timercb;
-      timercb = () => {
-        console.log(draggable.mirror.style.transform);
-        const tr = window.getComputedStyle(temp).transform;
-        console.log(tr);
-        const m = new DOMMatrixReadOnly(tr);
-        const rot = getrot(m);
-        draggable.mirror.style.transform = window.getComputedStyle(draggable.mirror).transform + ` rotate(${rot}deg)`;
-        timer = setTimeout(timercb, 30);
-      };
-
-      draggable.on('drag:start', () => {
-        let og = draggable.originalSource;
-        if(og.style["--effect"] == "1")
-        {
-          og.classList.remove("rainbow_class");
-          // og.style.
-          og.style["--effect"] = "0";
-          draggable.source.classList.remove("rainbow_class");
-          // draggable.mirror.classList.remove("rainbow_class");
-        }
-      });
+		let temp = document.getElementById('__temporary__');
 
 
-      draggable.on('mirror:attached', () => {
-        // temp.classList.add("dragged_proxy2");
-        
+		function eleminfo (elem) {
+			for(let i=0; i< elem.attributes.length; i++)
+				console.log(elem.attributes[i]);
+		}
 
-        draggable.mirror.classList.add("dragged_proxy");
-        draggable.source.style.opacity = "0.5";
-        draggable.source.style["font-size"] = "0";
-        draggable.mirror.style.filter = "drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.2))"
-                const matrix = new DOMMatrixReadOnly(draggable.mirror.style.transform);
-        const mirror = draggable.mirror;
-        draggable.mirror.style.top = "" + matrix.m42 + "px";
-        draggable.mirror.style.left = "" + matrix.m41 + "px";
-        // shine = new Shine(draggable.mirror);
-        // timer = setTimeout(timercb, 30);
-        // observer.observe(temp, {
-        //   attributes: true,
-        //   attributeFilter: ['style'],
-        // });
-      });
+		function getrot(m) {
+			const scale = Math.sqrt(m.a*m.a, m.b*m.b);
+			const sin = m.b/scale;
+			return Math.round(Math.asin(sin) * (180/Math.PI));
+		}
 
-      // draggable.on('mirror:destroy', () => {
+		var timer;
+		function timercb() {
+			console.log(draggable.mirror.style.transform);
+			const tr = window.getComputedStyle(temp).transform;
+			console.log(tr);
+			const m = new DOMMatrixReadOnly(tr);
+			const rot = getrot(m);
+			draggable.mirror.style.transform = window.getComputedStyle(draggable.mirror).transform + ` rotate(${rot}deg)`;
+			timer = setTimeout(timercb, 30);
+		};
 
-      // });
+		draggable.on('drag:start', () => {
+		let og = draggable.originalSource;
+			if(og.style["--effect"] == "1")
+			{
+				og.classList.remove("rainbow_class");
+				og.style["--effect"] = "0";
+				draggable.source.classList.remove("rainbow_class");
+			}
+		});
 
-      draggable.on('drag:move', () => {
-        // draggable.source.style.opacity = "0.5";
-        const matrix = new DOMMatrixReadOnly(draggable.mirror.style.transform);
-        const mirror = draggable.mirror;
-        draggable.mirror.style.top = "" + matrix.m42 + "px";
-        draggable.mirror.style.left = "" + matrix.m41 + "px";
-        // shine.draw();
 
-        // const tr = window.getComputedStyle(temp).transform;
-        // const m = new DOMMatrixReadOnly(tr);
-        // console.log(getrot(m))
-        // console.log(tr)
-      });
+		draggable.on('mirror:attached', () => {
+			draggable.mirror.classList.add("dragged_proxy");
+			draggable.source.style.opacity = "0.5";
+			draggable.source.style["font-size"] = "0";
+			draggable.mirror.style.filter = "drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.2))"
+					const matrix = new DOMMatrixReadOnly(draggable.mirror.style.transform);
+			const mirror = draggable.mirror;
+			draggable.mirror.style.top = "" + matrix.m42 + "px";
+			draggable.mirror.style.left = "" + matrix.m41 + "px";
+		});
 
-      draggable.on('drag:stop', () => {
-        // observer.disconnect();
-        // console.log("STOPPED");
-        // clearTimeout(timer);
-        // temp.classList.remove("dragged_proxy2");
-        const mirror = draggable.mirror;
-        let og = draggable.originalSource;
-        let output = "";
-        // const tr = window.getComputedStyle(mirror).transform;
-        // const matrix = new DOMMatrixReadOnly(tr);
-        const matrix = new DOMMatrixReadOnly(mirror.style.transform);
-        og.style.top = "" + matrix.m42 + "px";
-        og.style.left = "" + matrix.m41 + "px";
-      });
-    </script>
-    <script
-      data-section-id="header"
-      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
-    ></script>
-  </body>
+		draggable.on('drag:move', () => {
+			const matrix = new DOMMatrixReadOnly(draggable.mirror.style.transform);
+			const mirror = draggable.mirror;
+			draggable.mirror.style.top = "" + matrix.m42 + "px";
+			draggable.mirror.style.left = "" + matrix.m41 + "px";
+		});
+
+		draggable.on('drag:stop', () => {
+			const mirror = draggable.mirror;
+			let og = draggable.originalSource;
+			let output = "";
+			const matrix = new DOMMatrixReadOnly(mirror.style.transform);
+			og.style.top = "" + matrix.m42 + "px";
+			og.style.left = "" + matrix.m41 + "px";
+		});
+	</script>
+	</body>
 </html>
