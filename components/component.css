@@ -1,0 +1,47 @@
+.component-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.component-image {
+  width: 100px;
+  object-fit: cover;
+}
+.component-root-class-name {
+  top: 200px;
+  left: 647px;
+  width: 100px;
+  height: 120px;
+  position: absolute;
+}
+.component-root-class-name1 {
+  top: 190px;
+  left: 295px;
+  width: 100px;
+  height: 120px;
+  position: absolute;
+}
+.component-root-class-name2 {
+  top: 141px;
+  left: 487px;
+  width: 100px;
+  height: 120px;
+  position: absolute;
+}
+@media(max-width: 479px) {
+  .component-container {
+    height: 412px;
+  }
+  .component-image {
+    width: 250px;
+    height: 50%;
+  }
+  .component-text {
+    font-size: 25px;
+    font-family: JetBrains Mono;
+  }
+}
