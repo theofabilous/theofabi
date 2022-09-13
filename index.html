@@ -2,46 +2,13 @@
 
 <html lang="en">
 	<head>
-	<title>Next Parched Capybara</title>
-	<meta property="og:title" content="Next Parched Capybara" />
-	<meta property="twitter:card" content="summary_large_image" />
+	<title>theo</title>
+	<meta property="og:title" content="theo" />
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta charset="utf-8" />
-	<meta property="twitter:card" content="summary_large_image" />
-	<style data-tag="reset-style-sheet">
-		html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-	</style>
-	<style data-tag="default-style-sheet">
-		html {
-		font-family: Inter;
-		font-size: 16px;
-		}
-
-		body {
-		font-weight: 400;
-		font-style:normal;
-		text-decoration: none;
-		text-transform: none;
-		letter-spacing: normal;
-		line-height: 1.15;
-		color: var(--dl-color-gray-black);
-		background-color: var(--dl-color-gray-white);
-
-		}
-	</style>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-		data-tag="font"
-	/>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-		data-tag="font"
-	/>
 
 	<link rel="stylesheet" href="./style.css" />
 	</head>
@@ -53,48 +20,6 @@
 		</div>
 		<canvas id="bg_outer"></canvas>
 		<canvas id="scene"></canvas>
-<!-- 		<div>
-			<link href="./home.css" rel="stylesheet" />
-
-			<div class="home-container">
-				<header data-role="Header" class="home-header">
-					<h1 class="home-text">theo fabi</h1>
-					<h1 class="home-text1 hotbar-opt">file</h1>
-					<h1 class="home-text2 hotbar-opt">edit</h1>
-					<h1 class="home-text3 hotbar-opt">view</h1>
-				</header>
-				<div class="app-component-container app-component-root-class-name1">
-					<img
-					alt="image"
-					src="public/playground_assets/icons8-folder.svg"
-					class="app-component-image"
-					/>
-					<span class="app-component-text"><span>test</span></span>
-				</div>
-				<div class="app-component-container app-component-root-class-name">
-					<img
-					alt="image"
-					src="public/playground_assets/icons8-folder.svg"
-					class="app-component-image"
-					/>
-					<span class="app-component-text"><span>test</span></span>
-				</div>
-				<div id="__temporary__">
-				</div>
-				<div class="app-component-container app-component-root-class-name2">
-					<img
-					alt="image"
-					src="public/playground_assets/icons8-folder.svg"
-					class="app-component-image"
-					/>
-					<span class="app-component-text"><span>test</span></span>
-				</div>
-			</div>
-		</div> -->
-
-	<!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@next"></script> -->
-
-	<!--<script src="shine.js/dist/shine.min.js"></script>-->
 	<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js">
 	</script>
 
@@ -121,9 +46,9 @@
 			ρ : 28.0,
 			σ : 10.0,
 			β : 8/3,
-			Δt: 0.001,
+			Δt: 0.005,
 			//N: 1_000_000
-			N: 50_000
+			N: 51_000
 		};
 
 		let point = new THREE.Vector3(
@@ -132,7 +57,7 @@
 			1.0
 		);
 
-		function solve(pt, sys)
+		function solve(pt, sys, inplace)
 		{
 			let ẋ = sys.σ * (pt.y - pt.x);
 			let ẏ = (pt.x * (sys.ρ - pt.z)) - pt.y;
@@ -142,24 +67,38 @@
 			let Δy = ẏ * sys.Δt;
 			let Δz = ż * sys.Δt;
 
-			return new THREE.Vector3(
-				pt.x + Δx, 
-				pt.y + Δy, 
-				pt.z + Δz 
-			);
+			if(inplace)
+			{
+				pt.x = pt.x + Δx;
+				pt.y = pt.y + Δy;
+				pt.z = pt.z + Δz;
+			}
+			else
+			{
+				return new THREE.Vector3(
+					pt.x + Δx, 
+					pt.y + Δy, 
+					pt.z + Δz 
+				);
+			}
 
 		}
+
+		const initial = 45_000;
+
+		for(let i=0; i<system.N && i<initial; i++)
+			solve( point, system, true );
+
+		system.N -= initial;
 
 		const points = [ point ];
 		for(let i=1; i<system.N; i++)
 		{
-			points.push( solve(points[i-1], system) );
+			points.push( solve(points[i-1], system, false) );
 		}
 
 		const lorenz = new THREE.BufferGeometry().setFromPoints(points);
-		//lorenz.setDrawRange(0, 1);
 		lorenz.center();
-		//lorenz.setDrawRange(0, 1);
 		const line = new THREE.Line( 
 			lorenz, 
 			new THREE.LineBasicMaterial( { color: 0 } )
@@ -170,174 +109,53 @@
 		const renderer = new THREE.WebGLRenderer(
 			{
 				alpha: true,
-				canvas: canvas
+				canvas: canvas,
+				// antialias: true,
+				precision: "lowp",
+				powerPreference: "high-performance",
+				// depth: false,
+				stencil: false
 			}
 		);
 
-		const ctx = canvas.getContext('webgl2');
-		console.log(ctx);
+		// const ctx = canvas.getContext('webgl2');
 
 		renderer.setClearColor( 0xFFFFFF, 0);
-		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setPixelRatio(window.devicePixelRatio * 0.7);
 		renderer.setSize( window.innerWidth, window.innerHeight );
-		camera.position.setZ(10);
+		camera.position.setZ(20);
 		
 
 		window.onresize = function() {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
-			renderer.setPixelRatio(window.devicePixelRatio);
 			renderer.setSize( window.innerWidth, window.innerHeight );
 		}
 
-		document.addEventListener('wheel', (event) =>
-		{
-
-			camera.position.z += 0.1*event.deltaY;
-			if (camera.position.z > 100)
-				camera.position.setZ(100);
-			if (camera.position.z < 1)
-				camera.position.setZ(1);
-		}
-		);
-
-
-		// const draggable = new Draggable.Draggable(
-		// 	document.querySelectorAll('div'), 
+		// document.addEventListener('wheel', 
+		// 	(event) =>
 		// 	{
-		// 			draggable: '.app-component-container',
-		// 			distance: 7
+
+		// 		camera.position.z += 0.1*event.deltaY;
+		// 		if (camera.position.z > 100)
+		// 			camera.position.setZ(100);
+		// 		if (camera.position.z < 1)
+		// 			camera.position.setZ(1);
 		// 	}
 		// );
 
-		// for(const file of document.querySelectorAll('.app-component-container'))
-		// {
-		// 	file.style['--effect'] = "0";
-		// 	file.addEventListener('dblclick', () => {
-		// 		if(file.style['--effect'] === "0")
-		// 		{
-		// 			file.style['--effect'] = "1";
-		// 			file.classList.add("rainbow_class");
-		// 		}
-		// 		else
-		// 		{
-		// 			file.style['--effect'] = "0";
-		// 			file.classList.remove("rainbow_class");
-		// 		}
-		// 	});
-		// 	/*
-		// 	file.addEventListener('scroll', () => {
-		// 		console.log('scrolling!'); 
-		// 	});
-			
-		// 	file.addEventListener('wheel', () => {
-		// 		console.log('wheeling!'); 
-		// 	});
-		// 	*/
-		// }
-		
-
-		
-		// // let opts = document.querySelectorAll('.hotbar-opt');
-		// // for(const opt of opts)
-		// // {
-
-		// // }
-
-		// let temp = document.getElementById('__temporary__');
-
-
-		// function eleminfo (elem) {
-		// 	for(let i=0; i< elem.attributes.length; i++)
-		// 		console.log(elem.attributes[i]);
-		// }
-
-		// function getrot(m) {
-		// 	const scale = Math.sqrt(m.a*m.a, m.b*m.b);
-		// 	const sin = m.b/scale;
-		// 	return Math.round(Math.asin(sin) * (180/Math.PI));
-		// }
-
-		// var timer;
-		// async function timercb() {
-		// 	console.log(draggable.mirror.style.transform);
-		// 	const tr = window.getComputedStyle(temp).transform;
-		// 	console.log(tr);
-		// 	const m = new DOMMatrixReadOnly(tr);
-		// 	const rot = getrot(m);
-		// 	draggable.mirror.style.transform = window.getComputedStyle(draggable.mirror).transform + ` rotate(${rot}deg)`;
-		// 	timer = setTimeout(timercb, 30);
-		// };
-
-		// draggable.on('drag:start', () => {
-		// let og = draggable.originalSource;
-		// 	if(og.style["--effect"] == "1")
-		// 	{
-		// 		og.classList.remove("rainbow_class");
-		// 		og.style["--effect"] = "0";
-		// 		draggable.source.classList.remove("rainbow_class");
-		// 	}
-		// });
-
-
-		// draggable.on('mirror:attached', () => {
-		// 	draggable.mirror.classList.add("dragged_proxy");
-		// 	draggable.source.style.opacity = "0.5";
-		// 	draggable.source.style["font-size"] = "0";
-		// 	draggable.mirror.style.filter = "drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.2))"
-		// 			const matrix = new DOMMatrixReadOnly(draggable.mirror.style.transform);
-		// 	const mirror = draggable.mirror;
-		// 	draggable.mirror.style.top = "" + matrix.m42 + "px";
-		// 	draggable.mirror.style.left = "" + matrix.m41 + "px";
-		// });
-
-		// draggable.on('drag:move', () => {
-		// 	const matrix = new DOMMatrixReadOnly(draggable.mirror.style.transform);
-		// 	const mirror = draggable.mirror;
-		// 	draggable.mirror.style.top = "" + matrix.m42 + "px";
-		// 	draggable.mirror.style.left = "" + matrix.m41 + "px";
-		// });
-
-		// draggable.on('drag:stop', () => {
-		// 	const mirror = draggable.mirror;
-		// 	let og = draggable.originalSource;
-		// 	let output = "";
-		// 	const matrix = new DOMMatrixReadOnly(mirror.style.transform);
-		// 	og.style.top = "" + matrix.m42 + "px";
-		// 	og.style.left = "" + matrix.m41 + "px";
-		// });
-
-		
-		// renderer.render( scene, camera );
-		// const geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );
-		// const geometry = new THREE.BoxGeometry( 10, 10, 10 );
-		// const geometry = new THREE.IcosahedronGeometry(10, 0);
-		// const material = new THREE.MeshBasicMaterial( 
-		//	{ 	
-		//		color: 0, 
-		//		wireframe: true,
-		//		// wireframeLinewidth: .0,
-		//	} 
-		//);
-		// const object = new THREE.Mesh( geometry, material );
-		// scene.add( object );
 		scene.add( line );
-		//let i = 1000;
-		function animate() {
-			requestAnimationFrame( animate );
-
-			//object.rotation.x += 0.01;
-			//object.rotation.y += 0.01;
-			//object.rotation.z += 0.01;
-			line.rotation.x += 0.001;
-			line.rotation.y += 0.001;
-			//line.rotation.z += 0.01;
-			// i = (i+2) % system.N;
-			// line.geometry.setDrawRange(0, i);
+		function animate( time ) {
+			// requestAnimationFrame( animate );
+			// line.rotation.x += 0.001;
+			line.rotation.y += 0.0005;
+			
 			renderer.render( scene, camera );
 		}
 
-		animate();
+		renderer.setAnimationLoop( animate );
+
+		// animate();
 	</script>
 	</body>
 </html>
