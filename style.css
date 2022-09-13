@@ -1,9 +1,191 @@
-canvas {
+#bg_yellow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 190;
+	pointer-events:  none;
+   /*color: #FAB617FF; */
+	background-color: #fab617ff; 
+  /*color: radial-gradient(circle at left bottom,*/
+                                      /*rgba(255, 255, 255, 0) 0.00%,*/
+									/*rgb(250, 182, 23) 100.00%),*/
+                      /*radial-gradient(circle at left top, */
+									/*rgb(189, 195, 199) 0.00%,*/
+									/*rgb(255, 255, 255) 62.00%);*/
+   /*opacity: 0; */
+}
+
+@keyframes blob_move {
+	0% {
+		background: radial-gradient(circle at 0% 0%,
+							rgba(255, 255, 255, 255) 0%,
+							rgba(255, 255, 255, 0) 50%
+						);	
+	}
+	
+	20% {
+		background: radial-gradient(circle at 10% 100%,
+							rgba(255, 255, 255, 255) 0%,
+							rgba(255, 255, 255, 0) 50%
+						);	
+	}
+
+	60% {
+		background: radial-gradient(circle at 100% 35%,
+							rgba(255, 255, 255, 255) 0%,
+							rgba(255, 255, 255, 0) 50%
+						);	
+	}
+
+	100% {
+		background: radial-gradient(circle at 0% 0%,
+							rgba(255, 255, 255, 255) 0%,
+							rgba(255, 255, 255, 0) 50%
+						);	
+	}
+}
+
+
+@keyframes blob_tr1
+{
+	0% {
+		transform: translateX(-50%);
+	}
+
+	50% {
+		transform: translateX(-60%) translateY(-30%);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes blob_tr2
+{
+	0% {
+		transform: translateY(-50%);
+	}
+
+	50% {
+		transform: translateX(-20%) translateY(-60%);
+	}
+
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+.bg_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: clip;
+	/*background:
+		url(https://grainy-gradients.vercel.app/noise.svg);*/
+}
+
+#bg_outer {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	height:  100%;
+	width: 100%;
+	z-index: 193;
+	/*color: red;*/
+	background: url(https://grainy-gradients.vercel.app/noise.svg);
+	opacity:  0.4;
+}
+
+#bg_blob1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200%;
+	height: 200%;
+	z-index: 192;
+	pointer-events: none;
+	/* display:  flow-root; */
+	/* overflow: clip; */
+	 /*color:  red; */
+	background: 
+		radial-gradient(circle at center, 
+			rgba(255, 255, 255, 255) 0%,
+			rgba(255, 255, 255, 0) 50%
+		);
+	animation: blob_tr1 15.0s ease infinite;
+	-webkit-animation: blob_tr1 15.0s ease infinite;
+}
+
+#bg_blob2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200%;
+	height: 200%;
+	z-index: 192;
+	pointer-events: none;
+	/* display:  flow-root; */
+	/* overflow: clip; */
+	 /*color:  red; */
+	background: 
+		radial-gradient(circle at center, 
+			rgba(255, 255, 255, 255) 0%,
+			rgba(255, 255, 255, 0) 50%
+		);
+	animation: blob_tr2 20.0s ease infinite;
+	-webkit-animation: blob_tr2 20.0s ease infinite;
+}
+
+/*#bg_blob1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 192;
+	color:  yellow;
+	opacity: 0;
+}*/
+
+
+/*#bg_blob1:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200%;
+	height: 200%;
+	z-index: 191;
+	pointer-events: none;
+  color:  yellow;
+	background: radial-gradient(circle at center, 
+							rgba(255, 255, 255, 255) 0%,
+							rgba(255, 255, 255, 0) 50%
+						);
+	 animation: blob_tr 30.0s ease infinite; 
+	 -webkit-animation: blob_tr 30.0s ease infinite; 
+}*/
+
+
+#scene {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 200;
-  opacity: 0;
+  pointer-events:  none;
+  /* background-color: #fab617ff; */
+  /*background: radial-gradient(circle at left bottom,*/
+                                      /*rgba(255, 255, 255, 0) 0.00%,*/
+									/*rgb(250, 182, 23) 100.00%),*/
+                      /*radial-gradient(circle at left top, */
+									/*rgb(189, 195, 199) 0.00%,*/
+									/*rgb(250, 182, 23) 3.00%,*/
+									/*rgb(255, 255, 255) 62.00%);*/
+  /* opacity: 0; */
 }
 
 
