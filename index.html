@@ -121,6 +121,11 @@
 		);
 		
 		const canvas = document.querySelector('#scene');
+		const ctx = canvas.getContext('webgl2');
+		const bg_canvas = document.getElementById('bg_yellow');
+		bg_canvas.width = window.innerWidth;
+		bg_canvas.height = window.innerHeight;
+		// const bg_ctx = bg_canvas.getContext('2d');
 
 		const renderer = new THREE.WebGLRenderer (
 			{
@@ -135,7 +140,6 @@
 			}
 		);
 
-		// const ctx = canvas.getContext('webgl2');
 
 		renderer.setClearColor( 0, 0 ); // white, transparent
 		renderer.setPixelRatio(window.devicePixelRatio * 0.9);
@@ -147,6 +151,14 @@
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize( window.innerWidth, window.innerHeight );
+			bg_canvas.width = window.innerWidth;
+			bg_canvas.height = window.innerHeight;
+			//bg_ctx.width = window.innerWidth;
+			//bg_ctx.height = window.innerHeight;
+			//console.log("Scene client: " + canvas.clientWidth + ", " + canvas.clientHeight);		
+			//console.log("Bg dims: " + bg_ctx.width + ", " + bg_ctx.height);
+			//console.log("Win inner: " + window.innerWidth + ", " + window.innerHeight);
+			// console.log("Client: " + canvas.clientWidth + ", " + canvas.clientHeight);
 		}
 
 		/* FIX RESIZING ON MOBILE !!! */
@@ -171,6 +183,8 @@
 				renderer.setSize( canvas.clientWidth, canvas.clientHeight, false );
 				camera.aspect = canvas.clientWidth / canvas.clientHeight;
 				camera.updateProjectionMatrix();
+				bg_canvas.width = canvas.clientWidth;
+				bg_canvas.height = canvas.clientHeight;
 			}
 			// requestAnimationFrame( animate );
 			// line.rotation.x += 0.001;
