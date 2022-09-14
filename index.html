@@ -5,7 +5,7 @@
 	<title>theo</title>
 	<meta property="og:title" content="theo" />
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta charset="utf-8" />
@@ -163,7 +163,8 @@
 
 		/* FIX RESIZING ON MOBILE !!! */
 		window.onresize = onresize; 
-		 document.addEventListener('wheel', 
+		window.visualViewport.addEventListener('resize', onresize);
+		document.addEventListener('wheel', 
 		 	(event) =>
 		 	{
 
