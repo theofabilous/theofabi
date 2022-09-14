@@ -141,14 +141,16 @@
 		renderer.setPixelRatio(window.devicePixelRatio * 0.9);
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		camera.position.setZ(20);
+		
 
-		/* FIX RESIZING ON MOBILE !!! */
-		window.onresize = function() {
+		function onresize() {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 		}
 
+		/* FIX RESIZING ON MOBILE !!! */
+		window.onresize = onresize; 
 		 document.addEventListener('wheel', 
 		 	(event) =>
 		 	{
@@ -163,6 +165,13 @@
 
 		scene.add( line );
 		function animate( time ) {
+			if ( 	canvas.width  !== canvas.clientWidth ||
+					canvas.height !== canvas.clientHeight )
+			{
+				renderer.setSize( canvas.clientWidth, canvas.clientHeight, false );
+				camera.aspect = canvas.clientWidth / canvas.clientHeight;
+				camera.updateProjectionMatrix();
+			}
 			// requestAnimationFrame( animate );
 			// line.rotation.x += 0.001;
 			line.rotation.y += 0.0005;
